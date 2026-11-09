@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: transparent !important;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Pure CSS Compositor Audio Waveform Animation (0% CPU JS overhead) */
+@keyframes vnotch-wave-1 {
+  0%, 100% { transform: scaleY(0.25); }
+  50% { transform: scaleY(0.95); }
+}
+@keyframes vnotch-wave-2 {
+  0%, 100% { transform: scaleY(0.85); }
+  35% { transform: scaleY(0.25); }
+  70% { transform: scaleY(1); }
+}
+@keyframes vnotch-wave-3 {
+  0%, 100% { transform: scaleY(0.4); }
+  45% { transform: scaleY(0.95); }
+  80% { transform: scaleY(0.2); }
+}
+@keyframes vnotch-wave-4 {
+  0%, 100% { transform: scaleY(0.75); }
+  25% { transform: scaleY(0.3); }
+  65% { transform: scaleY(0.9); }
+}
+
+.wave-bar {
+  transform-origin: center;
+  will-change: transform;
+}
+
+.wave-playing-1 {
+  animation: vnotch-wave-1 0.85s ease-in-out infinite;
+}
+.wave-playing-2 {
+  animation: vnotch-wave-2 0.72s ease-in-out infinite;
+}
+.wave-playing-3 {
+  animation: vnotch-wave-3 0.94s ease-in-out infinite;
+}
+.wave-playing-4 {
+  animation: vnotch-wave-4 0.78s ease-in-out infinite;
+}
+
+/* Custom subtle scrollbar for File Shelf */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 9999px;
+}
