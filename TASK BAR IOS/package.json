@@ -1,0 +1,35 @@
+{
+  "name": "taskbar-macos-dock",
+  "version": "1.0.0",
+  "description": "Floating macOS / iOS Dock for Windows with authentic macOS icons and 60fps Parabolic Magnification",
+  "main": "dist-electron/electron/main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev:vite": "vite --port 5174",
+    "build:electron": "tsc -p tsconfig.electron.json",
+    "dev": "npm run build:electron && concurrently -k \"vite --port 5174\" \"wait-on tcp:5174 && electron . --dev\"",
+    "build": "tsc --noEmit && vite build && tsc -p tsconfig.electron.json",
+    "build:exe": "npm run build && node scripts/build-exe.mjs"
+  },
+  "dependencies": {
+    "framer-motion": "^11.11.17",
+    "lucide-react": "^0.460.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "zustand": "^5.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.3",
+    "autoprefixer": "^10.4.20",
+    "concurrently": "^9.1.0",
+    "electron": "^33.2.0",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.15",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11",
+    "wait-on": "^8.0.1"
+  }
+}
